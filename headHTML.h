@@ -1,3 +1,7 @@
+/**
+ * @authors CCNG
+ * pleas read file README.MD
+ */
 #include <ESP8266WiFi.h>
 
 struct
