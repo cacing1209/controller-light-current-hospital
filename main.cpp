@@ -1,5 +1,5 @@
 #include <ESP8266WiFi.h>
-#include <indexhtml.h>
+#include <headHTML.h>
 const int pinTermis = A0;
 const char *ssid = "68 in hexadecimal";
 const char *password = "01000100";
