@@ -14,3 +14,4 @@
 |     Cable 2     |    GND    |
 
 > **Note:** Still in development.
+![Languages](https://img.shields.io/github/languages/top/cacing1209/RFID-key)
