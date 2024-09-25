@@ -1,12 +1,16 @@
-## INSTALL LIBRARY ESP8266 ##
+## INSTALL LIBRARY ESP8266
 
-**Wiring diagram Relay conection**
-                                        **Diagram sensor(THERMIS 10K) connection**
+### Wiring Diagram Relay Connection
 |   RELAY PIN   |   ESP     |   
-|---------------|-----------|      The cable conection can be installed back and forth as well as resistors
-|   SINYAL      |   D5      |             |     THERMIS     |   ESP     |
-|   vcc         |   vcc     |             |-----------------|-----------|
-|   gnd         |   gnd     |             |     cable 1     |    A0     |
-                                          |     cable 2     |    gnd    |
+|---------------|-----------|   
+|   SINYAL      |   D5      |   
+|   VCC         |   VCC     |   
+|   GND         |   GND     |   
 
->NOTEl: STIL DEVELOPMENT
+### Diagram Sensor (THERMIS 10K) Connection
+|     THERMIS     |   ESP     |
+|-----------------|-----------|
+|     Cable 1     |    A0     |
+|     Cable 2     |    GND    |
+
+> **Note:** Still in development.
