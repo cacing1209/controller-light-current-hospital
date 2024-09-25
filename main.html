@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IOT KAMAR</title>
+    <script src="webSocket.js"></script>
+</head>
+
+<body>
+    <div id="warning">Harap membuka halaman ini dalam mode layar penuh untuk melanjutkan </div>
+    <div class="content">
+        <div class="fondasi">
+            <div class="container">
+                <h1>MONITORING LANTAI 1</h1>
+                <div class="container2">
+                    <h1 class="custom_h1">Current</h1>
+                    <div class="box">
+                        <span id="R-N">R..loading</span>
+                        <span id="R-N">S..loading</span>
+                        <span id="R-N">T..loading</span>
+                    </div>
+                </div>
+                <div class="space"></div>
+                <div class="container2">
+                    <h1 class="custom_h1">LAMPU</h1>
+                    <!-- <button class="button" onclick="sendCommand('ON')">ON</button> -->
+                    <button class="button" ondblclick="sendCommand('ON')">on</button>
+                    <button class="button off" onclick="sendCommand('OFF')">off</button>
+                    <div class="box"><span id="statuslampu">status lampu..loading</span></div>
+                </div>
+                <div class="space"></div>
+                <div class="container2">
+                    <h1 class="custom_h1">AC</h1>
+                    <!-- <button class="button" onclick="sendCommand('ON')">ON</button> -->
+                    <button class="button" ondblclick="sendCommand('acON')">on</button>
+                    <button class="button off" onclick="sendCommand('acOFF')">off</button>
+                    <div class="box">
+                        <span id="statusAC">statusAC..loading</span>
+                    </div>
+                </div>
+                <div class="space"></div>
+                <div class="container2">
+                    <h1 class="custom_h1">Listrik</h1>
+                    <!-- <button class="button" onclick="sendCommand('ON')">ON</button> -->
+                    <button class="button" ondblclick="sendCommand('listrikON')">on</button>
+                    <button class="button off" onclick="sendCommand('listrikOFF')">off</button>
+                    <div class="box"><span id="statusListrik">status listrik..loading</span></div>
+                </div>
+            </div>
+            <div class="space"></div>
+            <div class="container2">
+                <div class="temperature">
+                    <h1 class="emergency">DETEKSI KEBAKARAN</h1>
+                    <span id="celsius">celsius..loading</span>
+                    <span id="fahrenheit">fahrenheit..loading</span>
+                    <span id="kelvin">kalvin..loading</span>
+                    <span id="GAS">sensor Gas..loading</span>
+                </div>
+            </div>
+            <div class="space"></div>
+        </div>
+
+    </div>
+    </div>
+
+    </div>
+    <script src="commond.js">
+    </script>
+</body>
+
+</html>
