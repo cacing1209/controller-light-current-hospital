@@ -1,18 +1,11 @@
-/* Menghapus aturan @tailwind karena menyebabkan kesalahan */
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
 
 @keyframes slideIn {
-  from { transform: translateY(20px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
-
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(1); }
+  0% { transform: translateY(20px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
 }
 
 @keyframes glowingBorder {
@@ -27,7 +20,7 @@ body {
   background-color: #f0f2f5;
   color: #333;
   transition: all 0.5s ease;
-  animation: fadeIn 0.5s ease-out;
+  animation: fadeIn 0.8s ease-out;
 }
 
 body.dark-mode {
@@ -35,11 +28,16 @@ body.dark-mode {
   color: #f0f2f5;
 }
 
+body.light-mode {
+  background-color: #f0f2f5;
+  color: #333;
+}
+
 .container {
   max-width: 1400px;
   margin: 0 auto;
   padding: 30px;
-  animation: slideIn 0.5s ease-out;
+  animation: slideIn 0.8s ease-out;
 }
 
 .header {
@@ -47,17 +45,22 @@ body.dark-mode {
   padding: 20px 0;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   display: flex;
-  justify-content: space-between;
+  justify-content: center; /* Mengubah justify-content menjadi center */
   align-items: center;
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
   transition: all 0.5s ease;
+  border: 2px solid #ffffff; /* Menambahkan border */
+  border-radius: 10px; /* Menambahkan border radius */
+  position: relative; /* Menambahkan position relative */
 }
 
 .dark-mode .header {
   background: linear-gradient(45deg, #2c3e50, #34495e);
+  border: 2px solid #f0f2f5; /* Menambahkan border untuk dark mode */
+}
+
+.light-mode .header {
+  background: linear-gradient(45deg, #1a73e8, #4285f4);
+  border: 2px solid #ffffff; /* Menambahkan border untuk light mode */
 }
 
 h1 {
@@ -69,27 +72,7 @@ h1 {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.mode-toggle {
-  background-color: rgba(255, 255, 255, 0.2);
-  color: #ffffff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 30px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  -webkit-backdrop-filter: blur(5px);
-  backdrop-filter: blur(5px);
-}
-
-.mode-toggle:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
-
-.dark-mode .mode-toggle {
-  background-color: rgba(52, 73, 94, 0.6);
-}
+/* Tombol mode toggle dan menu telah dihapus sesuai instruksi */
 
 .unit-grid {
   display: grid;
@@ -107,13 +90,18 @@ h1 {
   cursor: pointer;
   display: flex;
   flex-direction: column;
-  animation: slideIn 0.5s ease-out;
   overflow: hidden;
+  position: relative; /* Menambahkan position relative untuk tombol */
 }
 
 .dark-mode .unit-item {
   background-color: #2d2d2d;
   box-shadow: 0 10px 20px rgba(255, 255, 255, 0.05);
+}
+
+.light-mode .unit-item {
+  background-color: #ffffff;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .unit-item:hover {
@@ -151,6 +139,10 @@ h1 {
   color: #4a90e2;
 }
 
+.light-mode .unit-name {
+  color: #1a73e8;
+}
+
 .unit-details {
   flex-grow: 1;
   display: flex;
@@ -184,6 +176,10 @@ h1 {
   color: #a0a0a0;
 }
 
+.light-mode .detail-label {
+  color: #5f6368;
+}
+
 .detail-value {
   color: #202124;
   font-weight: 600;
@@ -191,6 +187,10 @@ h1 {
 
 .dark-mode .detail-value {
   color: #e0e0e0;
+}
+
+.light-mode .detail-value {
+  color: #202124;
 }
 
 .cctv-preview {
@@ -220,18 +220,27 @@ h1 {
   box-shadow: 0 15px 30px rgba(255, 255, 255, 0.1);
 }
 
+.light-mode .cctv-preview video {
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
 .selected-unit {
   margin-top: 50px;
   background-color: #ffffff;
   border-radius: 20px;
   padding: 40px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-  animation: fadeIn 0.5s ease-out;
+  animation: fadeIn 0.8s ease-out;
 }
 
 .dark-mode .selected-unit {
   background-color: #2d2d2d;
   box-shadow: 0 20px 40px rgba(255, 255, 255, 0.05);
+}
+
+.light-mode .selected-unit {
+  background-color: #ffffff;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
 .selected-unit h2 {
@@ -288,6 +297,79 @@ h1 {
 
 .dark-mode .selected-unit .cctv-video video {
   box-shadow: 0 20px 40px rgba(255, 255, 255, 0.1);
+}
+
+.light-mode .selected-unit .cctv-video video {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Tombol untuk menyalakan AC, Water Heater, dan Lampu */
+.unit-item .control-button {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.unit-item .control-button button {
+  padding: 15px 30px; /* Perbesar tombol */
+  border: none;
+  border-radius: 20px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #ffffff;
+  background-color: #1a73e8;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.unit-item .control-button button:hover {
+  background-color: #4285f4;
+  transform: translateY(-5px);
+}
+
+.unit-item .control-button button:focus {
+  box-shadow: 0 0 10px #1a73e8;
+}
+
+/* Tombol status ON/OFF untuk AC, Water Heater, dan Lampu */
+.unit-item .control-button button.status-on {
+  background-color: #4CAF50; /* Hijau untuk status ON */
+}
+
+.unit-item .control-button button.status-off {
+  background-color: #f44336; /* Merah untuk status OFF */
+}
+
+/* Tombol dark mode */
+.dark-mode-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dark-mode-toggle:hover {
+  transform: translateY(-5px);
+}
+
+.dark-mode-toggle .dark-mode-icon {
+  font-size: 24px;
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.dark-mode-toggle .dark-mode-icon:hover {
+  color: #1a73e8;
 }
 
 @media (max-width: 1200px) {
