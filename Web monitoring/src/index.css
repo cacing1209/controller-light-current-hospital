@@ -1,0 +1,333 @@
+/* Menghapus aturan @tailwind karena menyebabkan kesalahan */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes glowingBorder {
+  0% { box-shadow: 0 0 5px #1a73e8; }
+  50% { box-shadow: 0 0 20px #1a73e8; }
+  100% { box-shadow: 0 0 5px #1a73e8; }
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f0f2f5;
+  color: #333;
+  transition: all 0.5s ease;
+  animation: fadeIn 0.5s ease-out;
+}
+
+body.dark-mode {
+  background-color: #121212;
+  color: #f0f2f5;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 30px;
+  animation: slideIn 0.5s ease-out;
+}
+
+.header {
+  background: linear-gradient(45deg, #1a73e8, #4285f4);
+  padding: 20px 0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.5s ease;
+}
+
+.dark-mode .header {
+  background: linear-gradient(45deg, #2c3e50, #34495e);
+}
+
+h1 {
+  font-size: 42px;
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 15px;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.mode-toggle {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+}
+
+.mode-toggle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode .mode-toggle {
+  background-color: rgba(52, 73, 94, 0.6);
+}
+
+.unit-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.unit-item {
+  background-color: #ffffff;
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  animation: slideIn 0.5s ease-out;
+  overflow: hidden;
+}
+
+.dark-mode .unit-item {
+  background-color: #2d2d2d;
+  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.05);
+}
+
+.unit-item:hover {
+  transform: translateY(-15px) scale(1.05);
+  box-shadow: 0 20px 40px rgba(26, 115, 232, 0.3);
+}
+
+.unit-name {
+  font-size: 28px;
+  color: #1a73e8;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+}
+
+.unit-name::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #1a73e8, #4285f4);
+  transition: all 0.4s ease;
+}
+
+.unit-item:hover .unit-name::after {
+  width: 100%;
+  left: 0;
+}
+
+.dark-mode .unit-name {
+  color: #4a90e2;
+}
+
+.unit-details {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.detail-item {
+  margin-bottom: 20px;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: rgba(26, 115, 232, 0.05);
+}
+
+.detail-item:hover {
+  transform: translateX(10px);
+  background-color: rgba(26, 115, 232, 0.1);
+}
+
+.detail-label {
+  font-weight: 500;
+  color: #5f6368;
+}
+
+.dark-mode .detail-label {
+  color: #a0a0a0;
+}
+
+.detail-value {
+  color: #202124;
+  font-weight: 600;
+}
+
+.dark-mode .detail-value {
+  color: #e0e0e0;
+}
+
+.cctv-preview {
+  margin-top: 20px;
+}
+
+.cctv-preview h4 {
+  font-size: 20px;
+  color: #1a73e8;
+  margin-bottom: 15px;
+}
+
+.cctv-preview video {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: all 0.4s ease;
+}
+
+.cctv-preview video:hover {
+  transform: scale(1.1);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode .cctv-preview video {
+  box-shadow: 0 15px 30px rgba(255, 255, 255, 0.1);
+}
+
+.selected-unit {
+  margin-top: 50px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  animation: fadeIn 0.5s ease-out;
+}
+
+.dark-mode .selected-unit {
+  background-color: #2d2d2d;
+  box-shadow: 0 20px 40px rgba(255, 255, 255, 0.05);
+}
+
+.selected-unit h2 {
+  font-size: 36px;
+  color: #1a73e8;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.selected-unit-details {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.selected-unit-details > div {
+  flex: 1;
+  min-width: 300px;
+}
+
+.selected-unit-details p {
+  font-size: 18px;
+  margin-bottom: 20px;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: rgba(26, 115, 232, 0.05);
+  transition: all 0.3s ease;
+}
+
+.selected-unit-details p:hover {
+  transform: translateX(10px);
+  background-color: rgba(26, 115, 232, 0.1);
+}
+
+.selected-unit .cctv-video {
+  width: 100%;
+  max-width: 800px;
+  margin: 30px auto;
+}
+
+.selected-unit .cctv-video video {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s ease;
+}
+
+.selected-unit .cctv-video video:hover {
+  transform: scale(1.05);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.35);
+}
+
+.dark-mode .selected-unit .cctv-video video {
+  box-shadow: 0 20px 40px rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 1200px) {
+  .unit-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .unit-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+  
+  .container {
+    padding: 20px;
+  }
+  
+  h1 {
+    font-size: 36px;
+  }
+  
+  .selected-unit .cctv-video video {
+    height: 350px;
+  }
+}
+
+@media (max-width: 480px) {
+  .unit-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .unit-item {
+    padding: 20px;
+  }
+  
+  h1 {
+    font-size: 30px;
+  }
+  
+  .selected-unit .cctv-video video {
+    height: 250px;
+  }
+}
