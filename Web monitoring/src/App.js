@@ -54,7 +54,7 @@ function App() {
   return (
     <div className={`container ${darkMode ? 'dark-mode' : ''}`}>
       <header className="header bg-gradient-to-r from-blue-500 to-purple-600 text-white p-4 shadow-lg static flex justify-between items-center">
-        <h1 className="text-3xl font-bold font-poppins">Sistem Monitoring Unit</h1>
+        <h1 className="text-3xl font-bold font-poppins">Monitoring kamar ccng</h1>
         <button className={`toggle-mode ${darkMode ? 'bg-gray-500' : 'bg-white'} animate-pulse`} onClick={() => setDarkMode(prevMode => !prevMode)}>
           {darkMode ? 'Light Mode' : 'Dark Mode'}
         </button>
