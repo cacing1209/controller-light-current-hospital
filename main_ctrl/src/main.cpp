@@ -16,6 +16,7 @@ IPAddress gateway(192, 168, 0, 1);
 IPAddress subnet(255, 255, 255, 0);
 IPAddress dns(8, 8, 8, 8);
 IPAddress dns2(1, 1, 1, 1);
+
 struct
 {
   float celsius;
@@ -23,14 +24,15 @@ struct
   float kelvin;
 } suhuDB;
 
-unsigned long previousMillis = 0, prev = 0;
+unsigned long previousMillis = 0;
 const long interval = 500;
 
-int analogValue;
 void mainHeater()
 {
+  static unsigned long prev = 0;
   if (millis() - prev >= 3000)
   {
+    int analogValue = analogRead(pinTermis);
     float resistance = (1023.0 / analogValue) - 1.0;
     resistance = 10000.0 / resistance;
     suhuDB.celsius = 1 / (log(resistance / 10000.0) / 3950 + 1.0 / 298.15) - 273.15;
@@ -38,13 +40,6 @@ void mainHeater()
     suhuDB.kelvin = suhuDB.celsius + 273.15;
     prev = millis();
   }
-  delay(250);
-  analogValue += 5;
-  if (analogValue >= 1000)
-  {
-    analogValue = 0;
-  }
-  // analogValue = analogRead(pinTermis);
 }
 
 void webSocketEvent(uint8_t num, WStype_t type, uint8_t *payload, size_t length)
@@ -77,7 +72,7 @@ void setup()
   WiFi.begin(ssid, password);
   if (!WiFi.config(iplocal, gateway, subnet, dns, dns2))
   {
-    Serial.print("IP STATIC ERORR");
+    Serial.println("IP STATIC ERROR");
   }
   while (WiFi.status() != WL_CONNECTED)
   {

@@ -4,13 +4,15 @@
 #include <ESP8266WiFi.h>
 #include <WebSocketsServer.h>
 
-struct {
+struct
+{
     const char *ON = "/on";
     const char *OFF = "/off";
     char request;
 } dbButton;
 
-void html(WiFiClient web, int CC, int QQ, float celsius, float fahrenheit, float kelvin) {
+void html(WiFiClient web, int CC, int QQ, float celsius, float fahrenheit, float kelvin)
+{
     web.println("HTTP/1.1 200 OK");
     web.println("Content-Type: text/html");
     web.println("Connection: close");
@@ -40,13 +42,13 @@ void html(WiFiClient web, int CC, int QQ, float celsius, float fahrenheit, float
     web.println("        document.getElementById('kelvin').innerText = 'Kelvin: ' + data.kelvin;");
     web.println("    };");
     web.println("    webSocket.onerror = function(error) {");
-    web.println("        console.log('WebSocket Error LENG CELENG: ', error);");
+    web.println("        console.log('WebSocket Error: ', error);");
     web.println("    };");
     web.println("    webSocket.onopen = function() {");
-    web.println("        console.log('Koneksi di Buka');");
+    web.println("        console.log('Connection Opened');");
     web.println("    };");
     web.println("    webSocket.onclose = function() {");
-    web.println("        console.log('Tutup Koneksi');");
+    web.println("        console.log('Connection Closed');");
     web.println("    };");
     web.println("});");
     web.println("</script>");
@@ -55,7 +57,6 @@ void html(WiFiClient web, int CC, int QQ, float celsius, float fahrenheit, float
     web.println("<h1>Manual Relay</h1>");
     web.printf("<button class='on' onclick=\"location.href='%s'\">ON</button>", dbButton.ON);
     web.printf("<button class='off' onclick=\"location.href='%s'\">OFF</button>", dbButton.OFF);
-    web.println("On CC");
     web.println("<div class='temperature'>");
     web.println("<h2>Temperature</h2>");
     web.println("<span id='celsius'>Celsius: Loading...</span><br>");
