@@ -37,14 +37,14 @@ body {
     text-align: center;
     background-color: #cdd1d1a9;
     padding: 10px;
-    border-radius: 50px;
+    border-radius: 25px;
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
     transition: background-color 0.3s ease, transform 0.3s ease;
     cursor: pointer;
 }
 
 .container2:hover {
-    background-color: #dde016b6;
+    background-color: #8e9164d0;
     border: 10;
     border-radius: 60;
     transform: scale(1.1);
@@ -83,25 +83,24 @@ h1 {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 18px;
-    margin: 10px;
+    font-size: 15px;
+    margin: 15px;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 2px;
     transition: background-color 0.3s ease;
 }
 
 .button:hover {
-    background-color: #2c2495b9;
+    background-color: #020105b7;
     transform: scale(1.1);
-
 }
 
 .button.off {
-    background-color: #ff1403;
+    background-color: #ff1403c2;
 }
 
 .button.off:hover {
-    background-color: #2c2495b9;
+    background-color: #020105b7;
     transform: scale(1.1);
 }
 

@@ -110,7 +110,6 @@ void loop()
   }
 
   webSocket.loop();
-
   WiFiClient client = server.available();
   if (client)
   {
@@ -130,7 +129,6 @@ void loop()
       QQ++;
       Serial.println("RELAY OFF " + String(QQ));
     }
-
     html(client, CC, QQ, suhuDB.celsius, suhuDB.fahrenheit, suhuDB.kelvin);
   }
 }

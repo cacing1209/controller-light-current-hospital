@@ -14,6 +14,5 @@ function checkWindowSize() {
     }
 }
 
-// Jalankan saat halaman dimuat dan saat ukuran layar berubah
 window.addEventListener('resize', checkWindowSize);
 window.addEventListener('load', checkWindowSize);
